@@ -1,0 +1,21 @@
+name: Clang-Tidy
+
+on:
+  pull_request:
+    branches:
+      - project1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run my action
+        run: echo "Hello, GitHub Actions!"
+
+      - name: Run Clang-Tidy
+        run: |
+          clang-tidy -checks=* source_files.cpp
